@@ -12,6 +12,7 @@ public class CaballeroMision {
     private double impuestoReinoAtena;
     private double recompensaNeta;
 
+
     public CaballeroMision(int idCaballero, String nombre, String rango, String constelacion, int nivelPoder,
                            String misionAsignada, int dificultadMision, double recompensaBase) {
         this.idCaballero = idCaballero;
@@ -25,6 +26,8 @@ public class CaballeroMision {
 
         calcularDatosFinancieros();
     }
+
+
 
     // --- Métodos de Cálculo ---
 
@@ -46,7 +49,7 @@ public class CaballeroMision {
             impuesto = 0.0;
         } else if (recompensa <= 200000) {
             impuesto = (recompensa - 100000) * 0.12;
-        } else if (recompensa <= 400000) {
+        } else if (recompensa> 200000 && recompensa <= 400000) {
             impuesto = 100000 * 0.12;
             impuesto += (recompensa - 200000) * 0.25;
         } else {
@@ -75,7 +78,10 @@ public class CaballeroMision {
         calcularDatosFinancieros();
     }
 
-
+    public void setConstelacion(String constelacion) {this.constelacion = constelacion;}
+    public void setNivelPoder(int nivelPoder) {this.nivelPoder = nivelPoder;}
+    public void setMisionAsignada(String misionAsignada) {this.misionAsignada = misionAsignada;}
+    public void setDificultadMision(int dificultadMision) {this.dificultadMision = dificultadMision;}
     public void setNombre(String nombre) { this.nombre = nombre; }
     public void setRango(String rango) { this.rango = rango; }
 

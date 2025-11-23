@@ -117,13 +117,24 @@
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="BRONCE "/>
+                    <item value="PLATA"/>
+                    <item value="ORO"/>
+                  </model>
+                </properties>
               </component>
               <component id="e3210" class="javax.swing.JComboBox" binding="cboConstelacion">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="SATURNO "/>
+                    <item value="NOSE"/>
+                  </model>
+                </properties>
               </component>
               <component id="e34cc" class="javax.swing.JSpinner" binding="spnNivelPoder">
                 <constraints>
@@ -143,7 +154,15 @@
                 <constraints>
                   <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="1"/>
+                    <item value="2"/>
+                    <item value="3"/>
+                    <item value="4"/>
+                    <item value="5"/>
+                  </model>
+                </properties>
               </component>
               <component id="d9671" class="javax.swing.JSpinner" binding="spnRecompensa">
                 <constraints>

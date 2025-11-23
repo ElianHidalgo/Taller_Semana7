@@ -9,12 +9,9 @@ public class GestorMisiones {
         this.caballeros = new ArrayList<>();
     }
 
-    // 1. Registrar Caballero (Req. 1)
     public boolean registrarCaballero(CaballeroMision nuevoCaballero) {
-        // Validación de ID único (requiere búsqueda O(n))
         for (CaballeroMision c : caballeros) {
             if (c.getIdCaballero() == nuevoCaballero.getIdCaballero()) {
-                System.out.println("ERROR: El ID " + nuevoCaballero.getIdCaballero() + " ya está registrado.");
                 return false;
             }
         }
@@ -22,29 +19,48 @@ public class GestorMisiones {
         return true;
     }
 
-    // 2. Modificar Datos (Req. 2)
-    public boolean modificarCaballero(int id, String nuevoNombre, String nuevoRango, double nuevaRecompensa) {
-        // Búsqueda lineal O(n) por ID
+    public boolean modificarCaballero(int id, String nombre, String rango, String constelacion, int nivelPoder, String mision, int dificultad, double recompensa) {
         for (CaballeroMision c : caballeros) {
             if (c.getIdCaballero() == id) {
-                // Actualizar los datos
-                c.setNombre(nuevoNombre);
-                c.setRango(nuevoRango);
-                // Si la recompensa cambia, los cálculos se actualizan automáticamente en el setter
-                c.setRecompensaBase(nuevaRecompensa);
+                c.setNombre(nombre);
+                c.setRango(rango);
+                c.setConstelacion(constelacion);
+                c.setNivelPoder(nivelPoder);
+                c.setMisionAsignada(mision);
+                c.setDificultadMision(dificultad);
+                c.setRecompensaBase(recompensa);
                 return true;
             }
         }
         return false;
     }
 
-    public List<CaballeroMision> listarCaballeros() {
-        return this.caballeros;
+    public String listarCaballeros() {
+        if (this.caballeros.isEmpty()) {
+            return "No hay caballeros registrados en el Santuario.";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("================================================================================================\n");
+        sb.append(String.format("| %-4s | %-15s | %-8s | %-15s | %-5s | %-12s |\n",
+                "ID", "NOMBRE", "RANGO", "CONSTELACIÓN", "PODER", "RECOMPENSA"));
+        sb.append("================================================================================================\n");
+
+        for (CaballeroMision c : this.caballeros) {
+            sb.append(String.format("| %-4d | %-15s | %-8s | %-15s | %-5d | %-12.2f |\n",
+                    c.getIdCaballero(),
+                    c.getNombre(),
+                    c.getRango(),
+                    c.getConstelacion(),
+                    c.getNivelPoder(),
+                    c.getRecompensaBase()));
+        }
+        sb.append("================================================================================================\n");
+        return sb.toString();
     }
 
 
     public String generarInforme(int id) {
-        // Búsqueda lineal O(n) por ID
         for (CaballeroMision c : caballeros) {
             if (c.getIdCaballero() == id) {
                 return String.format(
